@@ -1,0 +1,67 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (58) at (-3.75, 1.25) {};
+		\node [style=none] (59) at (3.75, 1.25) {};
+		\node [style=none] (60) at (-3.75, -1.5) {};
+		\node [style=none] (61) at (3.75, -1.5) {};
+		\node [style=none] (104) at (-4.5, 0.75) {};
+		\node [style=none] (105) at (-0.5, 1) {};
+		\node [style=none] (106) at (0.5, 1) {};
+		\node [style=none] (107) at (-0.5, -0.75) {};
+		\node [style=none] (108) at (0.5, -0.75) {};
+		\node [style=myText] (109) at (0, 0.5) {$f$};
+		\node [style=none] (110) at (-0.5, 0.75) {};
+		\node [style=none] (111) at (0.5, 0.75) {};
+		\node [style=none] (117) at (4.5, 0.75) {};
+		\node [style=none] (124) at (-1.75, -0.75) {};
+		\node [style=none] (131) at (1.75, -0.5) {};
+		\node [style=none] (132) at (1.75, -0.75) {};
+		\node [style=none] (133) at (3, -0.75) {};
+		\node [style=none] (134) at (0.5, -0.5) {};
+		\node [style=none] (136) at (-0.5, -0.5) {};
+		\node [style=myText] (137) at (-2.25, -0.5) {$0$};
+		\node [style=none] (138) at (-1.75, -1) {};
+		\node [style=none] (139) at (1.75, -1) {};
+		\node [style=myText] (140) at (-1.25, -0.25) {$C$};
+		\node [style=myText] (141) at (0, -1.25) {$-C$};
+		\node [style=myText] (142) at (-1.75, 1) {$A$};
+		\node [style=myText] (143) at (1.75, 1) {$B$};
+		\node [style=myText] (144) at (1.25, -0.25) {$C$};
+		\node [style=myText] (145) at (2.25, -0.5) {$0$};
+		\node [style=none] (146) at (-3, 0.75) {};
+		\node [style=none] (147) at (-3, -0.75) {};
+		\node [style=myText] (148) at (-4.25, 1) {$A$};
+		\node [style=none] (150) at (3, 0.75) {};
+		\node [style=myText] (151) at (4.25, 1) {$B$};
+		\node [style=myText] (152) at (0, 1.5) {$trace(f)$};
+		\node [style=myText] (153) at (-2.25, 0.25) {$+$};
+		\node [style=myText] (154) at (-1.25, 0.25) {$+$};
+		\node [style=myText] (155) at (-1.25, -0.75) {$+$};
+		\node [style=myText] (156) at (1.25, -0.75) {$+$};
+		\node [style=myText] (157) at (1.25, 0.25) {$+$};
+		\node [style=myText] (158) at (2.25, 0.25) {$+$};
+		\node [style=none] (159) at (-1.75, -1) {};
+		\node [style=none] (160) at (-1.75, -0.5) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (58.center) to (59.center);
+		\draw (59.center) to (61.center);
+		\draw (61.center) to (60.center);
+		\draw (60.center) to (58.center);
+		\draw (105.center) to (106.center);
+		\draw (106.center) to (108.center);
+		\draw (108.center) to (107.center);
+		\draw (107.center) to (105.center);
+		\draw (104.center) to (110.center);
+		\draw (111.center) to (117.center);
+		\draw (134.center) to (131.center);
+		\draw (132.center) to (133.center);
+		\draw (138.center) to (139.center);
+		\draw (146.center) to (147.center);
+		\draw (160.center) to (159.center);
+		\draw (131.center) to (139.center);
+		\draw (147.center) to (124.center);
+		\draw (150.center) to (133.center);
+		\draw (160.center) to (136.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

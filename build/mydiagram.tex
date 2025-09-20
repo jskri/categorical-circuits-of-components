@@ -1,0 +1,28 @@
+\usepackage{tikz}
+\usetikzlibrary{cd, fit, arrows}
+\usepackage{environ}
+\makeatletter
+\newsavebox{\measure@tikzpicture}
+\NewEnviron{scaletikzpicturetowidth}[1]{%
+  \def\tikz@width{#1}%
+  \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}%
+  \BODY
+  \end{lrbox}%
+  \pgfmathparse{#1/\wd\measure@tikzpicture}%
+  \edef\tikzscale{\pgfmathresult}%
+  \BODY
+}
+\makeatother
+\pgfdeclarelayer{nodelayer}
+\pgfdeclarelayer{edgelayer}
+\pgfsetlayers{nodelayer, edgelayer}
+
+\newcommand{\mydiagram}[2] {%tikz-filepath,caption
+  \begin{figure}[!ht]
+    \begin{scaletikzpicturetowidth}{\textwidth}
+    $$\input{#1}$$
+    \end{scaletikzpicturetowidth}
+  \caption{#2}
+  \end{figure}
+  \FloatBarrier
+}

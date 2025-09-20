@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (104) at (-1.75, 0.75) {};
+		\node [style=none] (110) at (-0.75, 0.75) {};
+		\node [style=none] (124) at (-1.75, 0) {};
+		\node [style=myText] (142) at (-1.25, 0.25) {$-A$};
+		\node [style=none] (147) at (-0.75, 0) {};
+		\node [style=myText] (148) at (-1.25, 1) {$A$};
+		\node [style=none] (159) at (-0.75, -0.75) {};
+		\node [style=none] (160) at (-1.75, -0.75) {};
+		\node [style=myText] (161) at (-1.25, -0.5) {$A$};
+		\node [style=myText] (162) at (0, 0) {$=$};
+		\node [style=none] (163) at (0.75, 0) {};
+		\node [style=myText] (164) at (1.25, 0.25) {$A$};
+		\node [style=none] (165) at (1.75, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (104.center) to (110.center);
+		\draw (160.center) to (159.center);
+		\draw (147.center) to (124.center);
+		\draw (110.center) to (147.center);
+		\draw (124.center) to (160.center);
+		\draw (165.center) to (163.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

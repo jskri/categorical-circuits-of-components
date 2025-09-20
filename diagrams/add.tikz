@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (-1, 0.75) {};
+		\node [style=none] (1) at (1, 0.75) {};
+		\node [style=none] (2) at (-1, -0.75) {};
+		\node [style=none] (3) at (1, -0.75) {};
+		\node [style=none] (6) at (-1, 0.25) {};
+		\node [style=none] (7) at (-1, -0.25) {};
+		\node [style=none] (8) at (1, 0) {};
+		\node [style=none] (10) at (-2.5, 0.25) {};
+		\node [style=none] (11) at (-2.5, -0.25) {};
+		\node [style=none] (13) at (2.5, 0) {};
+		\node [style=myText] (15) at (0, 0.25) {$f$};
+		\node [style=myText] (17) at (0, -0.25) {$add$};
+		\node [style=myText] (18) at (-1.75, 0.5) {$\alpha : \mathbb{N}$};
+		\node [style=myText] (19) at (-1.75, -0.5) {$\beta : \mathbb{N}$};
+		\node [style=myText] (20) at (1.75, 0.25) {$\gamma : \mathbb{N}$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0.center) to (1.center);
+		\draw (1.center) to (3.center);
+		\draw (3.center) to (2.center);
+		\draw (2.center) to (0.center);
+		\draw (10.center) to (6.center);
+		\draw (11.center) to (7.center);
+		\draw (8.center) to (13.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

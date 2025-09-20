@@ -1,0 +1,42 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (-3.25, 0.75) {};
+		\node [style=none] (1) at (-1.25, 0.75) {};
+		\node [style=none] (2) at (-3.25, -0.75) {};
+		\node [style=none] (3) at (-1.25, -0.75) {};
+		\node [style=myText] (15) at (-2.25, 0.25) {$i$};
+		\node [style=myText] (17) at (-2.25, -0.25) {$read$};
+		\node [style=none] (21) at (0.25, 0.75) {};
+		\node [style=none] (22) at (2.25, 0.75) {};
+		\node [style=none] (23) at (0.25, -0.75) {};
+		\node [style=none] (24) at (2.25, -0.75) {};
+		\node [style=none] (25) at (0.25, 0) {};
+		\node [style=none] (26) at (2.25, 0) {};
+		\node [style=none] (27) at (-1.25, 0) {};
+		\node [style=none] (28) at (3.75, 0) {};
+		\node [style=myText] (29) at (1.25, 0.25) {$h$};
+		\node [style=myText] (30) at (1.25, -0.25) {$filter$};
+		\node [style=myText] (31) at (-0.5, 0.25) {$\alpha : \mathbb{R}$};
+		\node [style=myText] (32) at (3, 0.25) {$\beta : \mathbb{R}$};
+		\node [style=none] (58) at (-3.5, 1) {};
+		\node [style=none] (59) at (2.5, 1) {};
+		\node [style=none] (60) at (-3.5, -1) {};
+		\node [style=none] (61) at (2.5, -1) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0.center) to (1.center);
+		\draw (1.center) to (3.center);
+		\draw (3.center) to (2.center);
+		\draw (2.center) to (0.center);
+		\draw (21.center) to (22.center);
+		\draw (22.center) to (24.center);
+		\draw (24.center) to (23.center);
+		\draw (23.center) to (21.center);
+		\draw (27.center) to (25.center);
+		\draw (26.center) to (28.center);
+		\draw (58.center) to (59.center);
+		\draw (59.center) to (61.center);
+		\draw (61.center) to (60.center);
+		\draw (60.center) to (58.center);
+	\end{pgfonlayer}
+\end{tikzpicture}

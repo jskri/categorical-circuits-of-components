@@ -1,0 +1,72 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=none] (0) at (-1.75, 1.25) {};
+		\node [style=none] (1) at (-0.75, 1.25) {};
+		\node [style=none] (2) at (-1.75, 0.25) {};
+		\node [style=none] (3) at (-0.75, 0.25) {};
+		\node [style=myText] (15) at (-1.25, 0.75) {$f$};
+		\node [style=none] (21) at (-1.75, 0) {};
+		\node [style=none] (22) at (-0.75, 0) {};
+		\node [style=none] (23) at (-1.75, -1) {};
+		\node [style=none] (24) at (-0.75, -1) {};
+		\node [style=none] (25) at (-1.75, 0.75) {};
+		\node [style=none] (26) at (-0.25, 0.5) {};
+		\node [style=none] (27) at (-3, 0.75) {};
+		\node [style=none] (28) at (0.75, 0.5) {};
+		\node [style=myText] (29) at (-1.25, -0.5) {$g$};
+		\node [style=myText] (31) at (0.25, -0.5) {$\delta : C$};
+		\node [style=myText] (32) at (0.25, 0.75) {$\gamma : C$};
+		\node [style=none] (58) at (-2, 1.5) {};
+		\node [style=none] (59) at (2, 1.5) {};
+		\node [style=none] (60) at (-2, -1.25) {};
+		\node [style=none] (61) at (2, -1.25) {};
+		\node [style=none] (62) at (0.75, -0.25) {};
+		\node [style=none] (63) at (-0.25, -0.25) {};
+		\node [style=myText] (64) at (-2.5, -0.75) {$\beta : B$};
+		\node [style=none] (72) at (-3, -0.5) {};
+		\node [style=none] (73) at (-1.75, -0.5) {};
+		\node [style=myText] (74) at (2.5, 0.25) {$\varepsilon : C$};
+		\node [style=myText] (75) at (0, 1.75) {$f \nabla g$};
+		\node [style=none] (81) at (-0.75, -0.5) {};
+		\node [style=none] (85) at (-0.25, -0.5) {};
+		\node [style=none] (86) at (-0.25, 0.75) {};
+		\node [style=none] (87) at (-0.75, 0.75) {};
+		\node [style=none] (88) at (0.75, 1.25) {};
+		\node [style=none] (89) at (1.75, 1.25) {};
+		\node [style=none] (90) at (0.75, -1) {};
+		\node [style=none] (91) at (1.75, -1) {};
+		\node [style=myText] (92) at (1.25, 0.25) {$\nabla$};
+		\node [style=none] (93) at (3, 0) {};
+		\node [style=none] (94) at (1.75, 0) {};
+		\node [style=myText] (95) at (-2.5, 1) {$\alpha : A$};
+		\node [style=myText] (96) at (-2.25, 0.25) {$+$};
+		\node [style=myText] (97) at (0.25, 0.25) {$+$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0.center) to (1.center);
+		\draw (1.center) to (3.center);
+		\draw (3.center) to (2.center);
+		\draw (2.center) to (0.center);
+		\draw (21.center) to (22.center);
+		\draw (22.center) to (24.center);
+		\draw (24.center) to (23.center);
+		\draw (23.center) to (21.center);
+		\draw (27.center) to (25.center);
+		\draw (26.center) to (28.center);
+		\draw (58.center) to (59.center);
+		\draw (59.center) to (61.center);
+		\draw (61.center) to (60.center);
+		\draw (60.center) to (58.center);
+		\draw (63.center) to (62.center);
+		\draw (72.center) to (73.center);
+		\draw (63.center) to (85.center);
+		\draw (85.center) to (81.center);
+		\draw (87.center) to (86.center);
+		\draw (86.center) to (26.center);
+		\draw (88.center) to (89.center);
+		\draw (89.center) to (91.center);
+		\draw (91.center) to (90.center);
+		\draw (90.center) to (88.center);
+		\draw (94.center) to (93.center);
+	\end{pgfonlayer}
+\end{tikzpicture}
