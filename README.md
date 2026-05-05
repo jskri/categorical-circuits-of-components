@@ -41,3 +41,18 @@ notation is not strictly followed for readability purposes (e.g. subscripts).
 These issues are corrected by a Pandoc Lua filter when generating the PDF
 version. For this reason, we recommend reading the PDF version which can be
 found in the releases.
+
+
+# Build
+
+The following is required to generate the PDF:
+
+- [Pandoc](https://pandoc.org/)
+
+- [XeLaTeX](https://en.wikipedia.org/wiki/XeTeX) with [TikZ](https://tikz.net/)
+
+Then type:
+
+```bash
+make
+```
