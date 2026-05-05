@@ -36,5 +36,8 @@ using known algebraic identities.
 
 The main source file is
 [categorical-circuits-of-components.md](./categorical-circuits-of-components.md).
-
-We recommend reading the PDF version that can be found in the releases.
+It is optimised for reading as a raw text file. In particular, the LaTeX math
+notation is not strictly followed for readability purposes (e.g. subscripts).
+These issues are corrected by a Pandoc Lua filter when generating the PDF
+version. For this reason, we recommend reading the PDF version which can be
+found in the releases.
