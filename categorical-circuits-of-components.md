@@ -418,8 +418,8 @@ basename: associativity-2
               └─────────────────┘
 ```
 
-This way of grouping components is a first way to handle complexity by enabling
-a hierarchical organization of components.
+This way of grouping components is an initial way to handle complexity by
+enabling a hierarchical organization of components.
 
 
 ### Parallel
@@ -442,8 +442,8 @@ basename: parallel-composition
      └───────┘
 ```
 
-An important variant is when both components have (wires with) the same input
-type. Then we can compose them in parallel by duplicating the input:
+An important variant is when both components have wires of the same input type.
+Then we can compose them in parallel by duplicating the input:
 
 ```diagram
 title: A split composition.
@@ -534,8 +534,8 @@ related to previously defined components with the same names):
 - $(h × k) ; (f × g) = (h ; f) × (k ; g)$
 - $h ; (f △ g) = (h ; f) △ (h ; g)$
 
-We illustrate only the last identity, that when read from right to left, can be
-used to optimise a component through factorisation (wire names are omitted):
+We illustrate only the last identity, which, when read from right to left, can
+be used to optimise a component through factorisation (wire names are omitted):
 
 ```diagram
 title: The "seq-split" identity.
@@ -587,8 +587,8 @@ means updating $f$ (resp. $g$), that may produce a value on $β$ (resp. $δ$).
 The following definitions are "mirrors" of the definitions in the product
 section.
 
-An important variant is when both components have (wires with) the same output
-type. Then we can compose them in parallel by joining the outputs:
+An important variant is when both components have wires of the same output type.
+Then we can compose them in parallel by joining the outputs:
 
 ```diagram
 title: A join-composition.
