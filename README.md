@@ -54,5 +54,6 @@ The following is required to generate the PDF:
 Then type:
 
 ```bash
+cd build/
 make
 ```
