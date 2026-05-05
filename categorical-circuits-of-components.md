@@ -12,23 +12,24 @@ components, built on lower-level ones, should be equally easy to understand and
 manipulate. One should also have a way to optimise components in a systematic
 way.
 
-To approach these goal, we will first give a precise definition of a component.
+To approach these goals, we will first give a precise definition of a component.
 Then, we'll define how to compose several components. However, without
-constraints such composition cannot be expressed formulaically and optimisation,
+constraints, such composition cannot be expressed as formulas and optimisation,
 if possible, cannot be done in a systematic way.
 
 To discipline composition, we will leverage constructions from category theory,
-allowing us to gradually enrich a language of components. First, the bare notion
-of category will give us associativity, which enables grouping of components as
-a first form of abstraction. Then, the notion of cartesian category will allow
-us to duplicate information and parallelise work. This will be completed by the
-notion of cocartesian category that will add a way to join parallel lines of
-components. Finally, compact closed categories will allow us to make data flow
-in both direction and create feedbacks and loops. With this final addition, we
-will be able to implement real circuits of components.
+which will allow us to gradually enrich a language of components. First, the
+bare notion of category will give us associativity, which enables grouping of
+components as a first form of abstraction. Then the notion of cartesian category
+will allow us to duplicate information and parallelise work. This will be
+completed by the notion of cocartesian category that will add a way to join
+parallel branches of components. Finally, compact closed categories will allow
+us to make data flow in both directions and create feedbacks and loops. With
+this final addition, we will be able to implement real circuits of components.
 
-At each step, algebraic identities will be given, enabling a way to "calculate"
-circuits and optimise them in a rigorous way.
+At each step, circuits will be expressed as formulas. We will then be able to
+optimise circuits by means of *calculation*, i.e. by reducing their formulas
+using known algebraic identities.
 
 
 
@@ -53,7 +54,7 @@ More formally, we first give the following context:
 We define $V = (⋃Ty) + 1$, with $+$ being the disjoint union and $1 = {⋆}$. $⋆$
 will represent an "empty" state, or the absence of value on a wire. When writing
 $S + 1$ for some set $S$, we will always assume that $⋆$ does not belong to $S$,
-thus $⋆$ will non-ambiguously denote the element of $1$.
+thus $⋆$ will unambiguously denote the element of $1$.
 
 A component is then a tuple $(I, O, s, up)$ where:
 
@@ -61,7 +62,7 @@ A component is then a tuple $(I, O, s, up)$ where:
 
 - $O : 𝒫(W)$ is the set of output wires
 
-- $s : S$ is the component state
+- $s : S$ is the component state, where $S$ is the state set
 
 - $up : T × (IO → V) × S → (IO → V) × S$ is the update function where
     + $IO = I ∪ O$
@@ -101,8 +102,8 @@ More precisely, $f = ({α, β}, {γ}, ⋆, add)$ where:
 the rest of the document.
 
 The no-op equation applies to cases where some input wires do not have values,
-or some output wires do have a value. This no-op fallback is omitted in the rest
-of the document.
+or some output wires already have a value. This no-op fallback is omitted in the
+rest of the document.
 
 ### Stateful procedure
 
@@ -116,9 +117,9 @@ basename: store
  β:ℤ  └─────────────┘ δ:Error
 ```
 
-The component $g$ is a dictionary that associates names to integers ($..., -1, 0, 1, ...$).
-If the key exists, it updates the stored value and returns the old value.
-Otherwise, it returns an error.
+The component $g$ is a dictionary that associates names with integers ($..., -1,
+0, 1, ...$). If the key exists, it updates the stored value and returns the old
+value. Otherwise, it returns an error.
 
 $g = ({α, β}, {γ, δ}, dict, store)$ where:
 
@@ -194,7 +195,7 @@ of $α$.
 
 ## Example
 
-We start by an example. We compose the already introduced components $h$ and
+We start with an example. We compose the already introduced components $h$ and
 $i$, with a rewiring of $f$ on wires $γ$, $δ$, $ε$, and a new component $j$ that
 outputs a string representation of its input pair (e.g.
 $up_j(t, (β ⟼ 3.4, ε ⟼ 7, ζ ⟼ ⋆), ⋆) = (β ⟼ ⋆, ε ⟼ ⋆, ζ ⟼ "(3.4, 7)"), ⋆)$, in
@@ -321,8 +322,8 @@ will allow us to:
 
 ### Sequential
 
-If a component $c_1$'s output wires are components $c_2$'s input wires, $c_1$
-and $c_2$ can be composed sequentially.
+If a component $c_1$'s output wires are component $c_2$'s input wires, $c_1$ and
+$c_2$ can be composed sequentially.
 
 Example:
 
@@ -374,7 +375,7 @@ Sequential composition is associative.
 ```lemma
 name: seq-cat
 
-Sequential composition forms a category (by lemmas id and seq-cat).
+Sequential composition forms a category (by lemmas id and seq-assoc).
 ```
 
 Consequently, we get the following identities (with $f ; g$ denoting the
@@ -510,7 +511,7 @@ basename: forget
 
 For each input, $!$ consumes it and produces a $⋆$ value ($1 = {⋆}$). Obviously,
 $⋆$ as a value on the wire must be distinguished from $⋆$ as an absence of value
-on the wire. In this document, we won't need this distinction but any notation
+on the wire. In this document, we won't need this distinction so any notation
 will do.
 
 
@@ -561,7 +562,7 @@ A│ ┌───┐ │ │ └───┘     └───┘ │ │      A�
 
 Product $f × g$ updates by consuming on all its inputs and producing on all its
 outputs at once. Sum $f + g$ is another form of stacking that updates by
-consuming and producing on only on wire at a time. In fact, only one input
+consuming and producing on only one wire at a time. In fact, only one input
 (resp. output) wire may have a value at a time.
 
 ```diagram
@@ -610,7 +611,7 @@ $join(_, (γ ⟼ x, δ ⟼ ⋆, ε ⟼ ⋆), ⋆) = ((γ ⟼ ⋆, δ ⟼ ⋆, ε
 
 $join(_, (γ ⟼ ⋆, δ ⟼ x, ε ⟼ ⋆), ⋆) = ((γ ⟼ ⋆, δ ⟼ ⋆, ε ⟼ x), ⋆))$
 
-We also define helper components that have two inputs and "inject" only one of
+We also define helper components that have two outputs and "inject" only one of
 them:
 
 ```diagram
@@ -656,8 +657,8 @@ basename: produce
 ```
 
 $0$ is a type with no value, hence $α$ is always empty. For each input (but
-there will never be any), $¡$ "consumes" it and produces a $A$ value out of thin
-air.
+there will never be any), $¡$ "consumes" it and produces an $A$ value out of
+thin air.
 
 ```lemma
 name: prod-cocart
@@ -883,7 +884,7 @@ basename: zig-zag-1
 
 As a formula (with $η': 0 → -A + A$, $exl0: 0 + A → A$):
 
-$inr0 ; id + η' ; assocl ; ε +id ; exl0  =  id$
+$inr0 ; id + η' ; assocl ; ε + id ; exl0  =  id$
 
 A mirror version also exists:
 
