@@ -288,8 +288,8 @@ domain.
 
 **Note**: $choose$ is Hilbert’s choice operator $ε$. It is deterministic and
 selects an arbitrary but fixed element in a set. Since a wire connects at most
-two components (one input and one output), due to update constraints $val(w) \
-{⋆}$ has one element (in the $else$), making the above $choose$ expression
+two components (one input and one output), due to update constraints $val(w) \ {⋆}$
+has one element (in the $else$), making the above $choose$ expression
 non-ambiguous.
 
 **Note**: $v ∪ v_in$ is a function that is the union of $v$ and $v_in$, which is
